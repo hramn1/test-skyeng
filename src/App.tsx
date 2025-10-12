@@ -3,6 +3,8 @@ import Header from "./components/Header/Header";
 import ExpenseTable from "./components/ExpenseTable/ExpenseTable";
 import AddExpenseForm from "./components/AddExpenseForm/AddExpenseForm";
 import FilterSortPanel from "./components/FilterSortPanel/FilterSortPanel";
+import styles from "./App.module.scss";
+import {initialExpenses} from "./mock.ts";
 
 export interface Expense {
     id: number;
@@ -12,14 +14,7 @@ export interface Expense {
     amount: number;
 }
 
-const initialExpenses: Expense[] = [
-    { id: 1, description: "Пятерочка", category: "Еда", date: "2024-07-03", amount: 3500 },
-    { id: 2, description: "Яндекс Такси", category: "Транспорт", date: "2024-07-03", amount: 730 },
-    { id: 3, description: "Аптека Вита", category: "Другое", date: "2024-07-03", amount: 1200 },
-    { id: 4, description: "Бургер Кинг", category: "Еда", date: "2024-07-03", amount: 950 },
-    { id: 5, description: "Деливери", category: "Еда", date: "2024-07-02", amount: 1320 },
-    { id: 6, description: "Кофейня №1", category: "Еда", date: "2024-07-02", amount: 400 },
-];
+
 
 function App() {
     const [expenses, setExpenses] = useState(initialExpenses);
@@ -43,14 +38,21 @@ function App() {
     return (
         <div>
             <Header />
-            <FilterSortPanel
-                filter={filter}
-                setFilter={setFilter}
-                sort={sort}
-                setSort={setSort}
-            />
-            <ExpenseTable expenses={sorted} />
-            <AddExpenseForm onAdd={addExpense} />
+            <main className={styles.container}>
+                <section className={styles.left}>
+                    <FilterSortPanel
+                        filter={filter}
+                        setFilter={setFilter}
+                        sort={sort}
+                        setSort={setSort}
+                    />
+                    <ExpenseTable expenses={sorted} />
+                </section>
+
+                <section className={styles.right}>
+                    <AddExpenseForm onAdd={addExpense} />
+                </section>
+            </main>
         </div>
     );
 }
