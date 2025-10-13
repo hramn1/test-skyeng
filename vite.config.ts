@@ -1,7 +1,8 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
-// https://vite.dev/config/
+// !!! вот это ключевая строка:
 export default defineConfig({
+  base: '/test-skyeng/',
   plugins: [react()],
 })
