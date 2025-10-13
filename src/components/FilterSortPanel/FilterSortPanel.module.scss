@@ -6,7 +6,20 @@
   gap: 1rem;
 }
 
+.sort {
+  background-color: #fff;
+  border: 0;
+  color: #1FA46C;
+
+  border-bottom: 1px solid #1FA46C;
+}
 select {
   background-color: #fff;
-  border: 0
+  border: 0;
+  font-size: 12px;
+
+}
+label{
+  font-size: 12px;
+  font-weight: 400;
 }

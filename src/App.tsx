@@ -15,7 +15,7 @@ function App() {
         return stored ? JSON.parse(stored) : initialExpenses;
     });
 
-    const [filter, setFilter] = useState<string>("Все");
+    const [filter, setFilter] = useState<string>("");
     const [sort, setSort] = useState<string>("дате");
     const [editedExpense, setEditedExpense] = useState<number | null>(null);
     useEffect(() => {
@@ -29,23 +29,20 @@ function App() {
         ]);
     };
 
-    // --- Удаление ---
     const deleteExpense = (id: number) => {
         if (window.confirm("Вы точно хотите удалить этот расход?")) {
             setExpenses((prev) => prev.filter((e) => e.id !== id));
         }
     };
 
-    // --- Редактирование (пока просто пример) ---
     const editExpense = (expense: Expense) => {
         setEditedExpense(expense.id)
     };
 
     const filtered = expenses.filter(
-        (e) => filter === "Все" || e.category === filter
+        (e) => filter === "" || e.category === filter
     );
 
-    // --- Сортировка ---
     const sorted = [...filtered].sort((a, b) => {
         if (sort === "дате") return b.date.localeCompare(a.date);
         if (sort === "сумме") return b.amount - a.amount;
@@ -77,7 +74,6 @@ function App() {
                             onAdd={addExpense} />
                     </section>
                 </section>
-
             </main>
         </div>
     );

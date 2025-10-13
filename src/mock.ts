@@ -20,4 +20,4 @@ export const categories = {
     education: "Образование",
     other: "Другое",
 };
-export const categoriesFilter = ["Все", "Еда", "Транспорт", "Жилье", "Развлечения", "Образование", "Другое"];
+export const categoriesFilter = ["", "Еда", "Транспорт", "Жилье", "Развлечения", "Образование", "Другое"];
