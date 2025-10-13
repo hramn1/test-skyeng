@@ -38,7 +38,7 @@ function App() {
 
     // --- Редактирование (пока просто пример) ---
     const editExpense = (expense: Expense) => {
-        setEditExpense(expense.id)
+        setEditedExpense(expense.id)
     };
 
     const filtered = expenses.filter(
@@ -51,7 +51,7 @@ function App() {
         if (sort === "сумме") return b.amount - a.amount;
         return 0;
     });
-
+    console.log(editedExpense)
     return (
         <div >
             <Header />
@@ -74,7 +74,6 @@ function App() {
 
                     <section className={styles.right}>
                         <AddExpenseForm
-                            editedExpence={editedExpense}
                             onAdd={addExpense} />
                     </section>
                 </section>
