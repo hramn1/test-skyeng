@@ -1,16 +1,18 @@
 .table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 0.95rem;
 }
 
 th, td {
   text-align: left;
   padding: 0.6rem 1rem;
-  border-bottom: 1px solid #e5e5e5;
+  font-size: 12px;
 }
-
+td:last-child, td:nth-last-child(2) {
+  padding: 1rem 0;
+}
 th {
-  font-weight: 600;
-  color: #333;
+  font-weight: 400;
+  color: #999999;
+  border-bottom: 1px solid #e5e5e5;
 }

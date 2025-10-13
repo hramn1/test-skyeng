@@ -1,4 +1,4 @@
-import type {Expense} from "./App.tsx";
+import type {Expense} from "./types.ts";
 
 export const initialExpenses: Expense[] = [
     { id: 1, description: "Пятерочка", category: "Еда", date: "2024-07-03", amount: 3500 },
@@ -12,4 +12,12 @@ export const initialExpenses: Expense[] = [
     { id: 9, description: "Лукойл", category: "Транспорт", date: "2024-06-29", amount: 1000 },
     { id: 10, description: "Летуаль", category: "Другое", date: "2024-06-29", amount: 4300 },
 ];
-export const categories = ["Еда", "Транспорт", "Жилье", "Развлечения", "Образование", "Другое"];
+export const categories = {
+    food: "Еда",
+    transport: "Транспорт",
+    housing: "Жилье",
+    entertainment: "Развлечения",
+    education: "Образование",
+    other: "Другое",
+};
+export const categoriesFilter = ["Все", "Еда", "Транспорт", "Жилье", "Развлечения", "Образование", "Другое"];

@@ -1,7 +1,7 @@
 import { useState } from "react";
-import type { Expense } from "../../App";
 import styles from "./AddExpenseForm.module.scss";
-import { categories } from "../../mock.ts";
+import { categoriesFilter, categories } from "../../mock.ts";
+import type {Expense} from "../../types.ts";
 
 interface Props {
     onAdd: (expense: Omit<Expense, "id">) => void;
@@ -9,7 +9,7 @@ interface Props {
 
 export default function AddExpenseForm({ onAdd }: Props) {
     const [description, setDescription] = useState("");
-    const [category, setCategory] = useState(categories[0]);
+    const [category, setCategory] = useState(categoriesFilter[0]);
     const [date, setDate] = useState("");
     const [amount, setAmount] = useState("");
 
@@ -24,7 +24,7 @@ export default function AddExpenseForm({ onAdd }: Props) {
         setDescription("");
         setDate("");
         setAmount("");
-        setCategory(categories[0]);
+        setCategory(categoriesFilter[0]);
     };
 
     return (
@@ -46,18 +46,25 @@ export default function AddExpenseForm({ onAdd }: Props) {
                 <fieldset className={styles.fieldset}>
                     <legend>Категория</legend>
                     <div className={styles.radioGroup}>
-                        {categories.map((cat) => (
-                            <label key={cat} className={styles.radioLabel}>
+                        {Object.entries(categories).map(([id, label]) => (
+                            <div key={id}>
                                 <input
                                     type="radio"
                                     name="category"
-                                    value={cat}
-                                    checked={category === cat}
-                                    onChange={() => setCategory(cat)}
+                                    value={label}
+                                    checked={category === label}
+                                    onChange={() => setCategory(label)}
+                                    id={`category-${id}`}
                                 />
-                                {cat}
-                            </label>
+                                <label
+                                    htmlFor={`category-${id}`}
+                                    className={`${styles.radioLabel} ${styles[`radio-${id}`]}`}
+                                >
+                                    {label}
+                                </label>
+                            </div>
                         ))}
+
                     </div>
                 </fieldset>
 

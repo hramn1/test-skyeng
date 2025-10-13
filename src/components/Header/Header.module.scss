@@ -1,8 +1,6 @@
 .header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   padding: 1rem 2rem;
+
   background: white;
   border-bottom: 1px solid #e5e5e5;
 }
@@ -14,23 +12,33 @@
 .nav {
   display: flex;
   gap: 1.5rem;
+  font-size: 14px;
+  font-weight: 600;
 }
 
 .nav a {
   text-decoration: none;
-  color: #333;
-  font-weight: 500;
+  color: #000;
+  font-weight: 400;
 }
 
 .nav .active {
   border-bottom: 2px solid #00c78b;
   padding-bottom: 2px;
+  font-weight: 600;
 }
 
 .logout {
   background: none;
   border: none;
-  color: #333;
+  color: #000;
   cursor: pointer;
   font-weight: 500;
+}
+.wrapper {
+  width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
