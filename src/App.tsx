@@ -15,7 +15,7 @@ function App() {
         return stored ? JSON.parse(stored) : initialExpenses;
     });
 
-    const [filter, setFilter] = useState<string>("");
+    const [filter, setFilter] = useState<string>("Фильтровать по категории");
     const [sort, setSort] = useState<string>("дате");
     const [editedExpense, setEditedExpense] = useState<number | null>(null);
     useEffect(() => {
@@ -40,7 +40,7 @@ function App() {
     };
 
     const filtered = expenses.filter(
-        (e) => filter === "" || e.category === filter
+        (e) => filter === "Фильтровать по категории" || e.category === filter
     );
 
     const sorted = [...filtered].sort((a, b) => {

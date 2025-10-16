@@ -9,15 +9,11 @@ export default function FilterSortPanel({ filter, setFilter, sort, setSort }: Pr
     return (
         <div className={styles.panel}>
             <h2>Таблица расходов</h2>
-            <label>
-                Фильтровать по категории
                 <select value={filter} onChange={(e) => setFilter(e.target.value)}>
                     {categoriesFilter.map((cat) => (
                         <option key={cat}>{cat}</option>
                     ))}
                 </select>
-            </label>
-
             <label>
                 Сортировать по
                 <select className={styles.sort} value={sort} onChange={(e) => setSort(e.target.value)}>

@@ -49,12 +49,13 @@
     width: 360px;
     grid-template-columns: 1fr;
     grid-template-rows: auto 1fr 1fr;
+    gap: 1rem;
   }
   .left{
-    grid-row: 2/2;
+    grid-row: 3/4;
   }
   .right{
-    grid-row: 3/4;
+    grid-row: 2/3;
   }
 }
 
@@ -67,9 +68,9 @@
     gap: 1rem;
   }
   .left{
-    grid-row: 2/2;
+    grid-row: 3/4;
   }
   .right{
-    grid-row: 3/4;
+    grid-row: 2/3;
   }
 }
